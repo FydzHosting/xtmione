@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X TMI ONE — SMK GEMA BANGSA</title>
+<meta name="description" content="Website kelas X TMI ONE SMK GEMA BANGSA.">
+<meta name="author" content="Rafid Murizki">
+<meta name="theme-color" content="#080808">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#080808;color:#f5f5f5;line-height:1.6}
+a{color:inherit;text-decoration:none} button{font-family:inherit}
+::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:#080808}::-webkit-scrollbar-thumb{background:#333;border-radius:10px}
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(8,8,8,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-container{max-width:1150px;margin:auto;padding:18px 25px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:18px;font-weight:700;letter-spacing:-.5px}.logo span{color:#888;font-weight:400}
+.nav-links{display:flex;gap:28px;list-style:none}.nav-links a{color:#aaa;font-size:14px;transition:.25s}.nav-links a:hover{color:#fff}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 25px 80px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 70%);top:-200px;left:50%;transform:translateX(-50%)}
+.hero-content{position:relative;z-index:2;max-width:850px}.school-name{font-size:15px;letter-spacing:4px;color:#999;text-transform:uppercase;margin-bottom:18px}
+.class-label{font-size:clamp(20px,3vw,28px);color:#d8d8d8;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}.class-name{font-size:clamp(64px,12vw,128px);line-height:.9;font-weight:850;letter-spacing:-6px;margin-bottom:30px;text-shadow:0 8px 35px rgba(255,255,255,.08)}
+.typing-container{min-height:30px;color:#aaa;font-size:16px}.typing-text{border-right:1px solid #aaa;padding-right:5px;animation:cursor .8s infinite}@keyframes cursor{50%{border-color:transparent}}
+.hero-buttons{margin-top:35px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 20px;border-radius:8px;border:1px solid #333;font-size:14px;transition:.25s;cursor:pointer}.btn-primary{background:#fff;color:#000;border-color:#fff}.btn-primary:hover{background:#ddd}.btn-secondary{background:transparent;color:#fff}.btn-secondary:hover{background:#171717}
+section{padding:100px 25px}.section-container{max-width:1100px;margin:auto}.section-header{margin-bottom:45px}.section-number{font-size:12px;color:#666;letter-spacing:2px;margin-bottom:8px}.section-title{font-size:clamp(30px,5vw,45px);letter-spacing:-1.5px}.section-description{color:#888;max-width:600px;margin-top:10px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.info-card,.person-card{background:#101010;border:1px solid #222;border-radius:12px;padding:25px}.info-label,.person-role{color:#666;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}.info-value,.person-name{font-size:18px;font-weight:600}
+.structure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.person-name{font-size:19px}
+.members-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.member-card{background:#101010;border:1px solid #222;border-radius:12px;overflow:hidden;transition:transform .25s,border-color .25s}.member-card:hover{transform:translateY(-4px);border-color:#444}.member-photo{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#181818}.member-info{padding:15px}.member-name{font-size:15px;font-weight:600}.member-role{font-size:12px;color:#666;margin-top:2px}
+.class-photo{width:100%;border-radius:14px;display:block;border:1px solid #222;background:#111}.photo-caption{color:#666;font-size:13px;margin-top:12px}
+.developer-box{background:#101010;border:1px solid #292929;border-radius:15px;padding:35px;display:flex;align-items:center;justify-content:space-between;gap:30px}.developer-tag{color:#666;font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}.developer-title{font-size:27px;font-weight:700}.developer-description{color:#888;max-width:650px;margin-top:8px;font-size:14px}
+.music-box{background:#101010;border:1px solid #222;border-radius:14px;padding:25px;display:flex;align-items:center;justify-content:space-between;gap:20px}.music-info h3{font-size:18px}.music-info p{color:#666;font-size:13px}.music-button{width:45px;height:45px;border-radius:50%;border:1px solid #444;background:#fff;color:#000;cursor:pointer;font-size:16px}
+footer{border-top:1px solid #1d1d1d;padding:35px 25px;text-align:center;color:#555;font-size:13px}footer strong{color:#999}
+@media(max-width:850px){.info-grid,.structure-grid{grid-template-columns:repeat(2,1fr)}.members-grid{grid-template-columns:repeat(3,1fr)}.developer-box{flex-direction:column;align-items:flex-start}}
+@media(max-width:600px){.nav-links{display:none}.nav-container{padding:16px 20px}.hero{min-height:90vh}.class-name{letter-spacing:-3px}section{padding:75px 20px}.info-grid,.structure-grid{grid-template-columns:1fr}.members-grid{grid-template-columns:repeat(2,1fr)}.developer-box{padding:25px}.music-box{padding:20px}}
+
+/* Welcome gate and view navigation */
+[hidden]{display:none!important}
+.welcome-screen{min-height:100vh;min-height:100svh;width:100%;display:grid;place-items:center;position:relative;overflow:hidden;background:#070707;padding:28px}
+.welcome-glow{position:absolute;width:min(90vw,650px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10),rgba(255,255,255,.025) 38%,transparent 70%);filter:blur(10px);top:50%;left:50%;transform:translate(-50%,-55%)}
+.welcome-content{position:relative;text-align:center;width:min(100%,560px);padding:45px 22px;margin:auto}
+.welcome-kicker{font-size:11px;letter-spacing:3px;color:#777;margin-bottom:24px}
+.welcome-mark{font-size:clamp(90px,24vw,150px);font-weight:900;line-height:.9;letter-spacing:-12px;color:#f5f5f5;text-shadow:0 10px 55px #ffffff1c}
+.welcome-content h1{font-size:clamp(26px,7vw,40px);letter-spacing:5px;margin-top:22px}
+.welcome-content p{color:#888;margin-top:8px;font-size:15px}
+.enter-button{margin-top:34px;min-width:190px;padding:15px 24px;font-weight:700}
+.enter-button span{margin-left:12px}
+.welcome-foot{font-size:10px;letter-spacing:4px;color:#4f4f4f;margin-top:55px}
+.nav-links button{border:0;background:none;color:#aaa;font:inherit;font-size:14px;cursor:pointer;padding:5px 0}
+.nav-links button:hover{color:#fff}.nav-links button.nav-active{color:#fff}.nav-links button[aria-current="page"]{position:relative}.nav-links button[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:#fff}
+.view-panel{animation:viewIn .28s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.view-panel:not(header){min-height:calc(100svh - 70px)}
+#homeView{min-height:100svh}
+.view-back{margin:0 0 24px}
+@media(max-width:600px){.nav-links{display:flex;gap:14px}.nav-links button{font-size:12px}.logo{font-size:15px}.nav-container{padding:13px 16px}.welcome-content{padding:30px 12px}}
+
+
+.home-summary{width:min(100%,720px);margin:48px auto 0;padding:25px 28px;border:1px solid #252525;border-radius:18px;background:linear-gradient(145deg,#121212,#0a0a0a);text-align:left}
+.summary-label{font-size:10px;letter-spacing:3px;color:#777;font-weight:700;margin-bottom:10px}
+.summary-copy{font-size:14px;line-height:1.85;color:#aaa;max-width:640px}
+.summary-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid #242424}
+.summary-stats div{display:flex;flex-direction:column;gap:3px}
+.summary-stats strong{font-size:17px;color:#f4f4f4}
+.summary-stats span{font-size:11px;color:#777}
+.text-link{margin-top:20px;background:none;border:0;color:#ddd;font:inherit;font-size:13px;cursor:pointer}
+.info-card{min-height:105px;display:flex;flex-direction:column;justify-content:center;transition:border-color .2s,transform .2s}
+.info-card:hover{border-color:#414141;transform:translateY(-2px)}
+.section-description{line-height:1.8}
+@media(max-width:600px){.home-summary{padding:21px 18px;margin-top:36px}.summary-copy{font-size:13px}.summary-stats{gap:8px}.summary-stats strong{font-size:14px}.summary-stats span{font-size:10px}.nav-links{gap:10px!important}.nav-links button{font-size:11px!important}}
+
+
+/* Premium monochrome dashboard and interactive tools */
+:root{color-scheme:dark;--bg:#080808;--panel:#101010;--panel2:#151515;--line:#272727;--muted:#888;--white:#f5f5f5}
+body{background:radial-gradient(ellipse at 50% -20%,#1a1a1a 0,transparent 45%),#080808}
+.navbar{background:rgba(8,8,8,.9);border-bottom-color:#242424}
+.nav-links button{white-space:nowrap}
+.nav-links button:focus-visible,.btn:focus-visible,.music-button:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.hero-content{width:100%}
+.class-name{text-wrap:balance}
+.home-summary{box-shadow:0 24px 80px #0008}
+.summary-stats div{padding:7px 10px;border-left:1px solid #292929}
+.summary-stats div:first-child{border-left:0;padding-left:0}
+.summary-stats strong{letter-spacing:-.3px}
+.info-card,.person-card,.member-card,.music-player{box-shadow:0 12px 34px #0002}
+.info-card:hover,.person-card:hover{background:#141414}
+.section-container{width:100%}
+.member-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:-20px 0 24px}
+.search-wrap{display:flex;align-items:center;gap:10px;flex:1;max-width:460px;padding:0 15px;border:1px solid #303030;border-radius:10px;background:#101010;color:#777}
+.search-wrap:focus-within{border-color:#777;box-shadow:0 0 0 3px #ffffff0a}
+.search-wrap span{font-size:23px}
+.search-wrap input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:#f5f5f5;padding:14px 0;font:inherit;font-size:14px}
+.search-wrap input::placeholder{color:#666}
+.member-count{color:#777;font-size:12px;white-space:nowrap}
+.member-card{min-width:0}
+.member-photo{color:#777;font-size:12px}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.gallery-image-button{display:block;position:relative;width:100%;min-width:0;padding:0;border:1px solid #2b2b2b;border-radius:16px;overflow:hidden;background:#101010;cursor:zoom-in;text-align:left}
+.gallery-image-button .class-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border:0;border-radius:0;transition:transform .5s,filter .3s}
+.gallery-image-button:hover .class-photo{transform:scale(1.025);filter:brightness(.8)}
+.gallery-image-hint{position:absolute;right:12px;bottom:12px;padding:8px 11px;border:1px solid #ffffff30;border-radius:8px;background:#080808c9;color:#fff;font-size:12px;backdrop-filter:blur(8px)}
+.gallery-caption-note{margin-top:12px;color:#555;font-size:12px}
+@media(max-width:560px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery-image-button{border-radius:12px}.gallery-image-hint{right:7px;bottom:7px;padding:6px 8px;font-size:10px}}
+.gallery-modal{position:fixed;inset:0;z-index:2000;background:#000e;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(12px)}
+.gallery-modal[hidden]{display:none}
+.gallery-modal img{max-width:min(1100px,100%);max-height:78svh;object-fit:contain;border:1px solid #333;border-radius:12px;box-shadow:0 20px 90px #000}
+.gallery-modal p{color:#aaa;font-size:12px;letter-spacing:1.5px;margin-top:15px;text-align:center}
+.gallery-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid #444;background:#111;color:#fff;font-size:28px;cursor:pointer;z-index:2}.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid #444;border-radius:50%;background:#111d;color:#fff;font-size:24px;cursor:pointer;display:grid;place-items:center}.gallery-prev{left:18px}.gallery-next{right:18px}.gallery-counter{color:#777;font-size:11px;letter-spacing:2px;margin-top:8px}.gallery-nav:hover,.gallery-close:hover{background:#292929}@media(max-width:560px){.gallery-nav{top:auto;bottom:10%;width:42px;height:42px}.gallery-prev{left:18px}.gallery-next{right:18px}.gallery-modal{padding:14px}.gallery-modal img{max-height:70svh}}
+.music-player{display:flex;align-items:center;gap:20px;border:1px solid #292929;border-radius:18px;padding:24px;background:linear-gradient(135deg,#141414,#0c0c0c)}
+.music-art{width:74px;height:74px;flex:0 0 74px;display:grid;place-items:center;border:1px solid #444;border-radius:14px;background:linear-gradient(145deg,#242424,#090909);font-size:38px;color:#eee}
+.music-main{flex:1;min-width:0}
+.music-eyebrow{display:block;color:#666;font-size:10px;letter-spacing:2.5px;margin-bottom:4px}
+.music-info h3{font-size:19px;letter-spacing:-.3px}
+.music-info p{margin-top:3px;color:#888;font-size:12px}
+.music-button{width:48px;height:48px;flex:0 0 48px;border:0;box-shadow:0 5px 24px #fff1;transition:transform .2s}
+.music-button:hover{transform:scale(1.06)}
+.music-local-source{margin-top:14px;display:flex;flex-direction:column;gap:8px;color:#888;font-size:12px;line-height:1.6}
+.music-local-source input{max-width:100%;font:inherit;color:#aaa;background:#111;border:1px solid #333;border-radius:8px;padding:9px}
+.music-local-source input::file-selector-button{cursor:pointer;border:0;border-radius:6px;padding:8px 10px;margin-right:10px;background:#eee;color:#111;font-weight:600}
+.music-progress-row{display:flex;align-items:center;gap:10px;margin-top:17px;color:#777;font-size:11px;font-variant-numeric:tabular-nums}
+.music-progress-row input{width:100%;accent-color:#fff;cursor:pointer}
+.music-extra{display:flex;justify-content:space-between;gap:12px;color:#555;font-size:11px;margin-top:13px}
+footer{margin-top:20px}
+@media(max-width:850px){.nav-container{gap:18px}.nav-links{gap:15px}.nav-links button{font-size:12px}}
+@media(max-width:680px){
+ .nav-container{align-items:flex-start;flex-direction:column;gap:8px}
+ .nav-links{width:100%;overflow-x:auto;padding:2px 0 7px;gap:18px!important;scrollbar-width:none}
+ .nav-links::-webkit-scrollbar{display:none}
+ .nav-links button{font-size:12px!important}
+ .member-tools{margin-top:-20px}
+ .music-player{gap:13px;padding:17px}
+ .music-art{width:52px;height:52px;flex-basis:52px;font-size:29px;border-radius:11px}
+ .music-info h3{font-size:15px}
+ .music-info p{font-size:11px}
+ .music-button{width:42px;height:42px;flex-basis:42px}
+ .music-extra{flex-direction:column;gap:4px}
+ .gallery-modal{padding:14px}
+ .gallery-modal img{max-height:75svh}
+ .summary-stats div{padding:6px}
+}
+@media(max-width:390px){.summary-stats strong{font-size:12px}.summary-stats span{font-size:9px}.search-wrap input{font-size:12px}.member-count{font-size:10px}}
+
+
+/* Dedicated creator page */
+.creator-card{position:relative;display:grid;grid-template-columns:180px minmax(0,1fr);gap:clamp(24px,5vw,58px);align-items:start;padding:clamp(24px,5vw,52px);overflow:hidden;border:1px solid #303030;border-radius:20px;background:radial-gradient(ellipse at 0% 0%,#242424 0,transparent 48%),linear-gradient(135deg,#141414,#090909);box-shadow:0 24px 70px #0005}
+.creator-mark{width:150px;height:150px;display:grid;place-items:center;border:1px solid #414141;border-radius:22px;background:linear-gradient(145deg,#292929,#0b0b0b);color:#f5f5f5;font-size:76px;font-weight:750;letter-spacing:-8px;box-shadow:inset 0 1px #ffffff12}
+.creator-mark span{color:#777}
+.creator-content{min-width:0;max-width:760px}
+.creator-name{font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-2px;margin:10px 0 22px;color:#f8f8f8}
+.creator-description{max-width:720px;color:#aaa;font-size:14px;line-height:1.95;margin:0 0 14px}
+.creator-meta{display:flex;align-items:center;gap:9px;margin:24px 0;color:#777;font-size:11px;letter-spacing:.7px}
+.creator-meta span{color:#f5f5f5}
+.creator-social{display:flex;align-items:center;gap:14px;max-width:390px;margin-top:24px;padding:15px 17px;border:1px solid #383838;border-radius:12px;background:#0b0b0b;color:#fff;text-decoration:none;transition:border-color .2s,background .2s,transform .2s}
+.creator-social:hover{border-color:#777;background:#141414;transform:translateY(-2px)}
+.creator-social-icon{width:38px;height:38px;display:grid;place-items:center;border:1px solid #3b3b3b;border-radius:10px;background:#191919;font-size:19px}
+.creator-social-text{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+.creator-social-text small{font-size:9px;letter-spacing:1.5px;color:#777}
+.creator-social-text strong{font-size:14px;font-weight:600;overflow-wrap:anywhere}
+.creator-social-arrow{color:#777}
+.creator-footnote{margin:18px 2px 0;color:#555;font-size:11px;letter-spacing:.5px}
+@media(max-width:650px){.creator-card{grid-template-columns:1fr;gap:26px;padding:24px}.creator-mark{width:94px;height:94px;border-radius:17px;font-size:51px;letter-spacing:-5px}.creator-name{margin-bottom:17px}.creator-description{font-size:13px;line-height:1.85}.creator-meta{flex-wrap:wrap;line-height:1.7}.creator-social{max-width:none}}
+
+
+/* Premium refinement */
+:root{--surface:#101010;--surface-raised:#151515;--stroke:#292929;--subtle-text:#858585}
+body{letter-spacing:-.12px}
+.nav-container{max-width:1200px}
+.nav-links button{transition:color .2s ease}
+.welcome-screen{isolation:isolate}
+.welcome-glow{pointer-events:none;animation:glowDrift 9s ease-in-out infinite alternate}
+.welcome-mark{background:linear-gradient(180deg,#fff 15%,#858585 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.welcome-content h1{font-weight:750}
+.enter-button{position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.enter-button:hover{transform:translateY(-2px);box-shadow:0 10px 35px #fff1}
+.enter-button span{display:inline-block;transition:transform .22s ease}
+.enter-button:hover span{transform:translate(3px,-2px)}
+.hero:before{pointer-events:none}
+.class-name{background:linear-gradient(180deg,#fff 10%,#aaa 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-header{max-width:760px}
+.section-number{display:inline-flex;align-items:center;gap:10px}
+.section-number:before{content:"";display:inline-block;width:22px;height:1px;background:#666}
+.info-card,.person-card,.member-card,.music-player,.creator-card,.home-summary{transition:border-color .25s ease,background .25s ease,transform .25s ease}
+.info-card{position:relative;overflow:hidden}
+.info-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,#ffffff20,transparent)}
+.person-card{min-height:105px;display:flex;flex-direction:column;justify-content:center}
+.member-card{background:linear-gradient(160deg,#131313,#0c0c0c)}
+.member-photo{transition:filter .3s ease}
+.member-card:hover .member-photo{filter:brightness(1.08)}
+.member-info{border-top:1px solid #ffffff06}
+.search-wrap{transition:border-color .2s ease,box-shadow .2s ease}
+.gallery-image-button:focus-visible,.gallery-close:focus-visible,.creator-social:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.music-player{background:radial-gradient(ellipse at 0% 0%,#1b1b1b 0,transparent 58%),linear-gradient(135deg,#141414,#0c0c0c)}
+.music-progress-row input{accent-color:#f5f5f5}
+.creator-card{transition:border-color .25s ease,transform .25s ease}
+.creator-mark{flex-shrink:0}
+footer p+p{margin-top:4px}
+@keyframes glowDrift{from{transform:translate(-50%,-55%) scale(.96);opacity:.75}to{transform:translate(-50%,-53%) scale(1.04);opacity:1}}
+@media(max-width:600px){
+ .welcome-kicker{letter-spacing:2px;font-size:10px}
+ .welcome-mark{letter-spacing:-8px}
+ .welcome-content h1{letter-spacing:3px}
+ .enter-button{width:min(100%,280px)}
+ .class-name{letter-spacing:-2px}
+ .summary-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .summary-stats div{border-left:0;padding-left:0}
+ .section-header{margin-bottom:30px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* Informasi kelas dipisahkan dari data organisasi/pengurus */
+.class-intro-card{position:relative;overflow:hidden;margin-bottom:18px;padding:clamp(24px,4vw,42px);border:1px solid #292929;border-radius:16px;background:radial-gradient(ellipse at 0 0,#202020 0,transparent 55%),linear-gradient(135deg,#141414,#0c0c0c)}
+.class-intro-card:after{content:"X";position:absolute;right:20px;bottom:-55px;font-size:clamp(130px,22vw,230px);font-weight:900;line-height:1;color:#ffffff05;pointer-events:none}
+.class-intro-eyebrow{font-size:10px;letter-spacing:2.5px;color:#888;font-weight:700;margin-bottom:14px}
+.class-intro-card h3{position:relative;z-index:1;max-width:650px;font-size:clamp(23px,4vw,34px);line-height:1.25;letter-spacing:-.8px;margin-bottom:17px}
+.class-intro-card p{position:relative;z-index:1;max-width:790px;color:#aaa;font-size:14px;line-height:1.9;margin-top:10px}
+.inline-nav-link{border:0;border-bottom:1px solid #888;background:none;color:#fff;font:inherit;cursor:pointer}
+.class-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+.class-facts .info-card{align-items:flex-start;min-height:132px;justify-content:center}
+.class-facts .info-value{font-size:clamp(16px,2vw,19px);overflow-wrap:anywhere}
+.info-note{margin-top:7px;color:#686868;font-size:12px;line-height:1.5}
+.class-info-bottom{display:flex;align-items:flex-start;gap:16px;margin-top:18px;padding:22px;border:1px solid #252525;border-radius:13px;background:#0d0d0d}
+.class-info-icon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border:1px solid #444;border-radius:50%;font-family:Georgia,serif;font-style:italic;color:#ddd}
+.class-info-bottom h3{font-size:15px;margin-bottom:5px}
+.class-info-bottom p{max-width:780px;color:#888;font-size:13px;line-height:1.8}
+@media(max-width:850px){.class-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.class-intro-card{padding:23px 19px}.class-intro-card p{font-size:13px}.class-facts{grid-template-columns:1fr}.class-facts .info-card{min-height:105px}.class-info-bottom{padding:18px;gap:12px}}
+
+
+/* Jadwal pelajaran */
+.schedule-intro{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:25px}
+.schedule-note{color:#aaa;font-size:13px;line-height:1.7;max-width:540px}
+.schedule-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.schedule-day{background:linear-gradient(160deg,#171717,#0d0d0d);border:1px solid #303030;border-radius:14px;overflow:hidden;min-width:0}
+.schedule-day-head{padding:16px 12px;border-bottom:1px solid #303030;background:#1c1c1c;text-align:center;font-size:13px;font-weight:700;letter-spacing:1.2px}
+.schedule-block{padding:13px 12px;border-bottom:1px solid #292929}
+.schedule-block:last-child{border-bottom:0}
+.schedule-block-label{font-size:10px;letter-spacing:1px;color:#888;text-transform:uppercase;margin-bottom:9px}
+.schedule-subject{font-size:12px;line-height:1.45;color:#eee;padding:8px 9px;margin-top:6px;background:#202020;border:1px solid #2d2d2d;border-radius:7px;overflow-wrap:anywhere}
+.schedule-break{margin:16px 0;padding:11px 14px;border:1px solid #343434;border-radius:10px;text-align:center;color:#ddd;font-size:12px;letter-spacing:2px;background:#171717}
+.schedule-footnote{margin-top:14px;color:#888;font-size:12px;line-height:1.6}
+@media(max-width:850px){.schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.schedule-grid{grid-template-columns:1fr}.schedule-day-head{text-align:left;padding-left:16px}.schedule-block{padding:12px 15px}.schedule-subject{font-size:13px}}
+
+
+/* Cinematic entrance, lightweight particle field, live clock, and music visualizer */
+.particle-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.48}
+.welcome-content{z-index:2;animation:introContent 1.15s cubic-bezier(.2,.75,.25,1) both}
+.welcome-kicker{animation:introRise .8s .12s both}.welcome-mark{animation:introMark 1.1s cubic-bezier(.16,1,.3,1) both}
+.welcome-content h1{animation:introRise .85s .2s both}.welcome-content>p{animation:introRise .85s .32s both}.enter-button{animation:introRise .85s .42s both;box-shadow:0 0 0 0 #fff0;transition:transform .25s,box-shadow .35s,background .25s}
+.enter-button:hover{transform:translateY(-3px);box-shadow:0 12px 38px #ffffff18}
+@keyframes introContent{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
+@keyframes introRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes introMark{0%{opacity:0;transform:scale(.72) translateY(20px);filter:blur(8px)}70%{opacity:1;filter:blur(0)}100%{transform:scale(1) translateY(0)}}
+.welcome-screen.leaving{animation:welcomeExit .65s cubic-bezier(.7,0,.3,1) forwards;pointer-events:none}
+@keyframes welcomeExit{to{opacity:0;transform:scale(1.025);filter:blur(8px)}}
+.live-greeting{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding:16px 18px;border:1px solid #2b2b2b;border-radius:13px;background:linear-gradient(110deg,#171717,#0c0c0c);}
+.live-dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#e9e9e9;box-shadow:0 0 14px #fff8;animation:livePulse 2s infinite}
+.live-greeting>div{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;flex:1;min-width:0}
+.live-greeting p{font-size:10px;letter-spacing:2px;color:#888;font-weight:700;grid-column:1/-1}
+.live-greeting strong{font-size:24px;letter-spacing:-.5px;font-variant-numeric:tabular-nums;line-height:1.3}
+.live-greeting small{font-size:11px;color:#777;text-align:right}
+@keyframes livePulse{50%{opacity:.35;box-shadow:0 0 2px #fff2}}
+.music-art{position:relative;overflow:hidden;isolation:isolate}
+.music-art:before{content:"";position:absolute;inset:7px;border:1px solid #ffffff12;border-radius:50%;animation:visualizerOrbit 12s linear infinite;z-index:-1}
+.music-note{position:relative;z-index:2;text-shadow:0 0 18px #fff5;pointer-events:none}
+#audioVisualizer{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.95}
+.music-player.is-playing .music-art{border-color:#666;box-shadow:0 0 32px #fff0;animation:artPulse 2s ease-in-out infinite}
+.music-player.is-playing .music-note{opacity:.45}
+@keyframes visualizerOrbit{to{transform:rotate(360deg)}}
+@keyframes artPulse{50%{box-shadow:0 0 28px #ffffff10}}
+.view-panel{animation:viewEnter .48s cubic-bezier(.2,.7,.2,1) both}
+@keyframes viewEnter{from{opacity:0;transform:translateY(15px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.view-panel.view-leaving{animation:viewLeave .18s ease forwards;pointer-events:none}
+@keyframes viewLeave{to{opacity:0;transform:translateY(-5px);filter:blur(2px)}}
+@media(max-width:600px){.live-greeting{padding:14px}.live-greeting strong{font-size:21px}.live-greeting small{font-size:10px}.particle-canvas{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.welcome-content,.welcome-kicker,.welcome-mark,.welcome-content h1,.welcome-content>p,.enter-button,.view-panel,.welcome-screen.leaving,.live-dot,.music-art:before,.music-player.is-playing .music-art{animation:none!important;transition:none!important}.particle-canvas{display:none}}
+
+
+/* X TMI ONE video intro shown after the welcome button is pressed */
+.video-intro{position:fixed;inset:0;z-index:9999;background:#000;display:grid;place-items:center;opacity:1;transition:opacity .45s ease}
+.video-intro[hidden]{display:none}
+.video-intro video{width:100%;height:100%;object-fit:contain;background:#000}
+.video-intro .skip-intro{position:absolute;right:18px;top:18px;z-index:2;padding:10px 15px;border:1px solid #ffffff55;border-radius:999px;background:#111b;color:#fff;font:600 12px inherit;letter-spacing:.5px;cursor:pointer;backdrop-filter:blur(8px)}
+.video-intro .skip-intro:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:600px){.video-intro video{object-fit:contain}.video-intro .skip-intro{right:12px;top:12px;padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){.video-intro{transition:none}}
+
+
+/* Background foto pilihan pengguna */
+body{background-color:#080808!important;background-image:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.72)),url("https://files.catbox.moe/itsrza.jpeg")!important;background-position:center center!important;background-size:cover!important;background-attachment:fixed!important;background-repeat:no-repeat!important}
+</style>
+</head>
+<body>
+<div id="welcomeScreen" class="welcome-screen cinematic-intro">
+  <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+  <div class="welcome-glow"></div>
+  <div class="welcome-content">
+    <div class="welcome-kicker">SMK GEMA BANGSA · 2026/2027</div>
+    <div class="welcome-mark">X</div>
+    <h1>X TMI ONE</h1>
+    <p>Satu kelas, banyak cerita.</p>
+    <button class="btn btn-primary enter-button" onclick="enterWebsite()">Ketuk untuk Masuk <span aria-hidden="true">↗</span></button>
+    <div class="welcome-foot">CLASS WEBSITE</div>
+  </div>
+</div>
+<div id="videoIntro" class="video-intro" hidden aria-label="Intro animasi X TMI ONE">
+  <button class="skip-intro" type="button" onclick="finishVideoIntro()">Lewati intro ↗</button>
+  <video id="introVideo" playsinline preload="auto" aria-label="Animasi pembuka X TMI ONE">
+    <source src="https://res.cloudinary.com/zqq3lfgt/video/upload/v1792067961/Proyek_Baru_8EB419F.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="websiteApp" class="website-app" hidden>
+<nav class="navbar">
+<div class="nav-container">
+<div class="logo">X TMI ONE <span>/ 2026</span></div>
+<ul class="nav-links">
+<li><button onclick="showView('home')">Beranda</button></li>
+<li><button onclick="showView('kelas')">Informasi</button></li>
+<li><button onclick="showView('pengurus')">Pengurus</button></li>
+<li><button onclick="showView('jadwal')">Jadwal</button></li>
+<li><button onclick="showView('anggota')">Anggota</button></li>
+<li><button onclick="showView('galeri')">Galeri</button></li>
+<li><button onclick="showView('musik')">Musik</button></li>
+<li><button onclick="showView('developer')">Pembuat Web</button></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero view-panel" id="homeView">
+<div class="hero-content">
+<div class="school-name">SMK GEMA BANGSA</div>
+<div class="class-label">Kelas</div>
+<h1 class="class-name">X TMI ONE</h1>
+<div class="typing-container"><span class="typing-text" id="typingText"></span></div>
+<div class="home-summary">
+<div class="live-greeting"><span class="live-dot"></span><div><p id="liveGreeting">SELAMAT DATANG, X TMI ONE</p><strong id="liveClock">00:00:00</strong><small id="liveDate">Memuat tanggal...</small></div></div>
+<p class="summary-label">PENJELASAN KELAS</p>
+<p class="summary-copy">X TMI ONE merupakan kelas di SMK GEMA BANGSA untuk tahun ajaran 2026/2027. Website ini menjadi ruang informasi kelas, mengenal pengurus dan anggota, serta menyimpan dokumentasi momen bersama.</p>
+<div class="summary-stats">
+<div><strong>X TMI ONE</strong><span>Nama Kelas</span></div>
+<div><strong>36 Siswa</strong><span>Jumlah Murid</span></div>
+</div>
+<button class="text-link" onclick="showView('kelas')">Baca penjelasan lengkap ↗</button>
+</div>
+</div>
+</header>
+
+<section id="kelas" class="view-panel" data-view="kelas" hidden>
+<div class="section-container">
+<div class="section-header"><div class="section-number">01 / INFORMASI KELAS</div><h2 class="section-title">Mengenal X TMI ONE</h2><p class="section-description">Halaman ini khusus berisi gambaran umum, identitas, dan informasi kelas. Nama serta jabatan pengurus dibahas terpisah di halaman Pengurus Kelas.</p></div>
+<div class="class-intro-card"><div class="class-intro-eyebrow">PROFIL KELAS · TAHUN AJARAN 2026/2027</div><h3>Tempat belajar, tumbuh, dan berbagi cerita.</h3><p>X TMI ONE adalah kelas tingkat X pada program Teknik Mekanik Industri (TMI) di SMK GEMA BANGSA. Website ini menjadi pusat informasi kelas yang bisa diakses siswa kapan saja, sekaligus ruang untuk menyimpan dokumentasi dan kenangan selama tahun ajaran berlangsung.</p><p>Di halaman ini, siswa dapat melihat identitas kelas dan informasi umum. Untuk mengenal susunan pengurus beserta tanggung jawabnya, kunjungi halaman <button class="inline-nav-link" onclick="showView('pengurus')">Pengurus Kelas ↗</button>.</p></div>
+<div class="info-grid class-facts">
+<div class="info-card"><div class="info-label">Nama Sekolah</div><div class="info-value">SMK GEMA BANGSA</div><div class="info-note">Lingkungan belajar</div></div>
+<div class="info-card"><div class="info-label">Identitas Kelas</div><div class="info-value">X TMI ONE</div><div class="info-note">Tingkat X · TMI</div></div>
+<div class="info-card"><div class="info-label">Program Keahlian</div><div class="info-value">Teknik Mekanik Industri</div><div class="info-note">Bidang keahlian kelas</div></div>
+<div class="info-card"><div class="info-label">Tahun Ajaran</div><div class="info-value">2026 / 2027</div><div class="info-note">Periode pembelajaran</div></div>
+<div class="info-card"><div class="info-label">Jumlah Siswa</div><div class="info-value">36 Siswa</div><div class="info-note">Total anggota kelas</div></div>
+<div class="info-card"><div class="info-label">Fokus Website</div><div class="info-value">Informasi &amp; Dokumentasi</div><div class="info-note">Kabar dan kenangan kelas dalam satu tempat</div></div>
+</div>
+<div class="class-info-bottom"><div class="class-info-icon">i</div><div><h3>Informasi kelas, bukan daftar pengurus</h3><p>Bagian ini berfokus pada profil, identitas, dan gambaran umum kelas. Detail wali kelas, ketua, wakil, sekretaris, serta bendahara ditampilkan pada halaman Pengurus Kelas agar informasi tidak tumpang tindih.</p></div></div>
+</div>
+</section>
+
+
+<section id="jadwal" class="view-panel" data-view="jadwal" hidden>
+<div class="section-container">
+<div class="section-header"><div class="section-number">03 / JADWAL PELAJARAN</div><h2 class="section-title">Jadwal X TMI ONE</h2><p class="section-description">Jadwal pelajaran dari Senin sampai Jumat, disusun berdasarkan gambar jadwal kelas.</p></div>
+<div class="schedule-intro"><div><div class="class-intro-eyebrow">TAHUN AJARAN 2026/2027</div><h3 style="font-size:clamp(20px,3vw,28px);margin:10px 0 0">Biar nggak salah jadwal.</h3></div><p class="schedule-note">Lihat mata pelajaran dan kegiatan kelas per hari. Jam pelajaran tidak dicantumkan karena tidak tersedia pada gambar jadwal yang dikirim.</p></div>
+<div class="schedule-grid">
+<div class="schedule-day"><div class="schedule-day-head">SENIN</div><div class="schedule-block"><div class="schedule-block-label">Sebelum istirahat</div><div class="schedule-subject">Upacara</div><div class="schedule-subject">Bahasa Inggris</div></div><div class="schedule-block"><div class="schedule-block-label">Setelah istirahat pertama</div><div class="schedule-subject">Bahasa Indonesia</div><div class="schedule-subject">Seni Budaya</div></div><div class="schedule-block"><div class="schedule-block-label">Sesi akhir</div><div class="schedule-subject">Pendidikan Agama Islam</div></div></div>
+<div class="schedule-day"><div class="schedule-day-head">SELASA</div><div class="schedule-block"><div class="schedule-block-label">Sebelum istirahat</div><div class="schedule-subject">Informatika</div><div class="schedule-subject">Sejarah</div></div><div class="schedule-block"><div class="schedule-block-label">Setelah istirahat pertama</div><div class="schedule-subject">Bahasa Inggris</div><div class="schedule-subject">DKMI (Pak UNU)</div></div><div class="schedule-block"><div class="schedule-block-label">Sesi akhir</div><div class="schedule-subject">IPAS</div></div></div>
+<div class="schedule-day"><div class="schedule-day-head">RABU</div><div class="schedule-block"><div class="schedule-block-label">Sebelum istirahat</div><div class="schedule-subject">DKMI (Pak Asep)</div><div class="schedule-subject">Bahasa Indonesia</div></div><div class="schedule-block"><div class="schedule-block-label">Setelah istirahat pertama</div><div class="schedule-subject">Informatika</div><div class="schedule-subject">Matematika</div></div><div class="schedule-block"><div class="schedule-block-label">Sesi akhir</div><div class="schedule-subject">DKMI (Syahrindra)</div></div></div>
+<div class="schedule-day"><div class="schedule-day-head">KAMIS</div><div class="schedule-block"><div class="schedule-block-label">Sebelum istirahat</div><div class="schedule-subject">PJOK</div><div class="schedule-subject">DKMI (Syahrindra)</div></div><div class="schedule-block"><div class="schedule-block-label">Setelah istirahat pertama</div><div class="schedule-subject">IPAS</div><div class="schedule-subject">DKMI (Pak UNU)</div></div><div class="schedule-block"><div class="schedule-block-label">Sesi akhir</div><div class="schedule-subject">DKMI (Pak UNU)</div><div class="schedule-subject">Matematika</div></div></div>
+<div class="schedule-day"><div class="schedule-day-head">JUMAT</div><div class="schedule-block"><div class="schedule-block-label">Sebelum istirahat</div><div class="schedule-subject">Muatan Lokal</div><div class="schedule-subject">Pendidikan Pancasila</div></div><div class="schedule-block"><div class="schedule-block-label">Setelah istirahat pertama</div><div class="schedule-subject">DKMI (Pak Asep)</div><div class="schedule-subject">Sholat Jum'at</div></div><div class="schedule-block"><div class="schedule-block-label">Sesi akhir</div><div class="schedule-subject">Jum'at Bersih</div></div></div>
+</div>
+<div class="schedule-break">ISTIRAHAT · 2 KALI DALAM SEHARI</div>
+<p class="schedule-footnote">Catatan: gambar sumber menampilkan dua waktu istirahat, tetapi tidak mencantumkan jam atau nomor jam pelajaran. Susunan di atas mempertahankan urutan kegiatan yang terbaca; konfirmasi ke wali kelas jika ada perubahan jadwal.</p>
+</div>
+</section>
+
+<section id="pengurus" class="view-panel" data-view="pengurus" hidden>
+<div class="section-container">
+<div class="section-header"><div class="section-number">02 / ORGANISASI KELAS</div><h2 class="section-title">Pengurus Kelas</h2><p class="section-description">Kenali orang-orang yang membantu mengoordinasikan kegiatan kelas dan menjalankan tanggung jawab organisasi. Data nama dan jabatan pengurus ditampilkan khusus di halaman ini.</p></div>
+<div class="structure-grid">
+<div class="person-card"><div class="person-role">Wali Kelas</div><div class="person-name">Pak Syahrindra</div></div>
+<div class="person-card"><div class="person-role">Ketua Kelas</div><div class="person-name">Rizky</div></div>
+<div class="person-card"><div class="person-role">Wakil Ketua</div><div class="person-name">Kresna</div></div>
+<div class="person-card"><div class="person-role">Bendahara</div><div class="person-name">Abdul</div></div>
+<div class="person-card"><div class="person-role">Sekretaris 1</div><div class="person-name">Rahmat</div></div>
+<div class="person-card"><div class="person-role">Sekretaris 2</div><div class="person-name">Rivaldi</div></div>
+</div>
+</div>
+</section>
+
+<section id="anggota" class="view-panel" data-view="anggota" hidden>
+<div class="section-container">
+<div class="section-header"><div class="section-number">04 / ANGGOTA</div><h2 class="section-title">Anggota Kelas</h2><div class="section-description" style="margin-top:8px">36 Siswa · X TMI ONE</div><p class="section-description">Cari nama anggota atau jabatan untuk menemukan kartu dengan cepat.</p></div>
+<div class="member-tools"><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="memberSearch" type="search" placeholder="Cari nama atau jabatan..." autocomplete="off" aria-label="Cari anggota kelas"></label><span id="memberCount" class="member-count">36 anggota</span></div>
+<div class="members-grid" id="membersGrid">
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-1" alt="Rafid">
+<div class="member-info"><div class="member-name">Rafid</div><div class="member-role">Codingers</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-2" alt="Rizky">
+<div class="member-info"><div class="member-name">Rizky</div><div class="member-role">Ketua Kelas</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-3" alt="Kresna">
+<div class="member-info"><div class="member-name">Kresna</div><div class="member-role">Wakil Ketua</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-4" alt="Abdul">
+<div class="member-info"><div class="member-name">Abdul</div><div class="member-role">Bendahara</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-5" alt="Rahmat">
+<div class="member-info"><div class="member-name">Rahmat</div><div class="member-role">Sekretaris 1</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-6" alt="Rivaldi">
+<div class="member-info"><div class="member-name">Rivaldi</div><div class="member-role">Sekretaris 2</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-7" alt="Andre">
+<div class="member-info"><div class="member-name">Andre</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-8" alt="Deni">
+<div class="member-info"><div class="member-name">Deni</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-9" alt="Nando">
+<div class="member-info"><div class="member-name">Nando</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-10" alt="Roby">
+<div class="member-info"><div class="member-name">Roby</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-11" alt="Faris">
+<div class="member-info"><div class="member-name">Faris</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-12" alt="Ferly">
+<div class="member-info"><div class="member-name">Ferly</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-13" alt="Maulana">
+<div class="member-info"><div class="member-name">Maulana</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-14" alt="Beni">
+<div class="member-info"><div class="member-name">Beni</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-15" alt="Hafiz">
+<div class="member-info"><div class="member-name">Hafiz</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-16" alt="Rapa">
+<div class="member-info"><div class="member-name">Rapa</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-17" alt="Faiz">
+<div class="member-info"><div class="member-name">Faiz</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-18" alt="Aby">
+<div class="member-info"><div class="member-name">Aby</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-19" alt="Rama">
+<div class="member-info"><div class="member-name">Rama</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-20" alt="Sigit">
+<div class="member-info"><div class="member-name">Sigit</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-21" alt="Izan">
+<div class="member-info"><div class="member-name">Izan</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-22" alt="Tedi">
+<div class="member-info"><div class="member-name">Tedi</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-23" alt="Dika">
+<div class="member-info"><div class="member-name">Dika</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-24" alt="Deden">
+<div class="member-info"><div class="member-name">Deden</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-25" alt="Ubay">
+<div class="member-info"><div class="member-name">Ubay</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-26" alt="umay">
+<div class="member-info"><div class="member-name">umay</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-27" alt="Nama Siswa 27">
+<div class="member-info"><div class="member-name">Nama Siswa 27</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-28" alt="Nama Siswa 28">
+<div class="member-info"><div class="member-name">Nama Siswa 28</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-29" alt="Nama Siswa 29">
+<div class="member-info"><div class="member-name">Nama Siswa 29</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-30" alt="Nama Siswa 30">
+<div class="member-info"><div class="member-name">Nama Siswa 30</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-31" alt="Nama Siswa 31">
+<div class="member-info"><div class="member-name">Nama Siswa 31</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-32" alt="Nama Siswa 32">
+<div class="member-info"><div class="member-name">Nama Siswa 32</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-33" alt="Nama Siswa 33">
+<div class="member-info"><div class="member-name">Nama Siswa 33</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-34" alt="Nama Siswa 34">
+<div class="member-info"><div class="member-name">Nama Siswa 34</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-35" alt="Nama Siswa 35">
+<div class="member-info"><div class="member-name">Nama Siswa 35</div><div class="member-role">Siswa</div></div>
+</div>
+<div class="member-card">
+<img class="member-photo" src="URL-FOTO-36" alt="Nama Siswa 36">
+<div class="member-info"><div class="member-name">Nama Siswa 36</div><div class="member-role">Siswa</div></div>
+</div>
+</div></div>
+</div>
+</section>
+
+<section id="galeri" class="view-panel" data-view="galeri" hidden>
+<div class="section-container">
+<div class="section-header"><div class="section-number">04 / GALERI</div><h2 class="section-title">Foto Kelas</h2><p class="section-description">Dokumentasi dan momen bersama X TMI ONE.</p></div>
+<div class="gallery-grid" aria-label="Galeri foto kelas X TMI ONE">
+<button class="gallery-image-button" type="button" onclick="openGalleryImage(this.querySelector('img'))" aria-label="Perbesar foto kelas 1">
+<img class="class-photo" src="https://files.catbox.moe/c3386y.jpg" alt="Foto sekelas X TMI ONE — foto 1" loading="lazy">
+<span class="gallery-image-hint">↗ Lihat foto</span>
+</button>
+<button class="gallery-image-button" type="button" onclick="openGalleryImage(this.querySelector('img'))" aria-label="Perbesar foto kelas 2">
+<img class="class-photo" src="https://files.catbox.moe/c6uzoc.jpg" alt="Foto sekelas X TMI ONE — foto 2" loading="lazy">
+<span class="gallery-image-hint">↗ Lihat foto</span>
+</button>
+<button class="gallery-image-button" type="button" onclick="openGalleryImage(this.querySelector('img'))" aria-label="Perbesar foto kelas 3">
+<img class="class-photo" src="https://files.catbox.moe/iaxfe5.jpg" alt="Foto sekelas X TMI ONE — foto 3" loading="lazy">
+<span class="gallery-image-hint">↗ Lihat foto</span>
+</button>
+<button class="gallery-image-button" type="button" onclick="openGalleryImage(this.querySelector('img'))" aria-label="Perbesar foto kelas 4">
+<img class="class-photo" src="https://files.catbox.moe/0bj1ty.jpg" alt="Foto sekelas X TMI ONE — foto 4" loading="lazy">
+<span class="gallery-image-hint">↗ Lihat foto</span>
+</button>
+</div>
+<p class="photo-caption">X TMI ONE — SMK GEMA BANGSA</p>
+<div class="gallery-caption-note">4 dokumentasi kelas · Tahun ajaran 2026/2027 · Ketuk foto untuk memperbesar</div>
+</div>
+</section>
+
+<section id="musik" class="view-panel" data-view="musik" hidden>
+<div class="section-container">
+<div class="section-header"><div class="section-number">05 / MUSIC</div><h2 class="section-title">Class Soundtrack</h2><p class="section-description">Musik yang menemani perjalanan X TMI ONE.</p></div>
+<div class="music-player">
+<div class="music-art" aria-hidden="true"><span class="music-note">♪</span><canvas id="audioVisualizer" width="180" height="180" aria-label="Visualisasi audio"></canvas></div>
+<div class="music-main">
+<div class="music-info"><span class="music-eyebrow">CLASS SOUNDTRACK</span><h3>X TMI ONE — Soundtrack</h3><p id="musicStatus">Musik siap diputar. Tekan tombol play.</p></div>
+<div class="music-progress-row"><span id="musicCurrentTime">0:00</span><input id="musicProgress" type="range" min="0" max="100" value="0" aria-label="Posisi musik"><span id="musicDuration">0:00</span></div>
+</div>
+<button class="music-button" id="musicButton" onclick="toggleMusic()" aria-label="Putar musik">▶</button>
+</div>
+<div class="music-extra"><span>↻ Pemutaran berulang aktif</span><span>Musik tetap berjalan saat berpindah halaman</span></div>
+<div class="music-local-source"><label for="musicFileInput">Kalau musik online tidak bersuara, pilih file MP3 dari HP:</label><input id="musicFileInput" type="file" accept="audio/*,.mp3,.m4a,.ogg,.wav" /></div>
+<!-- Soundtrack website terpisah dari audio video intro. -->
+<audio id="classMusic" src="https://files.catbox.moe/g7b9v3.mp3" preload="auto" loop playsinline></audio>
+</div>
+</section>
+
+<section id="developer" class="view-panel" data-view="developer" hidden>
+<div class="section-container">
+<div class="section-header">
+<div class="section-number">06 / THE CREATOR</div>
+<h2 class="section-title">Di Balik Website Ini</h2>
+<p class="section-description">Kenalan dengan orang yang merancang dan membangun website X TMI ONE.</p>
+</div>
+<div class="creator-card">
+<div class="creator-mark" aria-hidden="true">R<span>.</span></div>
+<div class="creator-content">
+<div class="developer-tag">WEBSITE CREATOR · CODINGERS</div>
+<h3 class="creator-name">Rafid Murizki</h3>
+<p class="creator-description">Halo! Gw Rafid, pembuat website kelas X TMI ONE dari SMK GEMA BANGSA. Website ini dibuat sebagai ruang digital untuk mengenalkan identitas kelas, menampilkan pengurus dan anggota, menyimpan dokumentasi kebersamaan, serta menghadirkan musik yang menemani cerita kelas.</p>
+<p class="creator-description">Lewat website ini, gw ingin informasi kelas tersusun lebih rapi, gampang diakses lewat HP maupun komputer, dan bisa jadi kenangan digital untuk perjalanan X TMI ONE di tahun ajaran 2026/2027. Kalau ada nama yang perlu diperbaiki, foto yang ingin ditambahkan, atau saran untuk website, silakan hubungi gw lewat WhatsApp.</p>
+<div class="creator-meta"><span>✦</span> Design · Development · Class Memories</div>
+<a class="creator-social" href="https://fydzz-official.my.id" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi portofolio Fydz Official">
+<span class="creator-social-icon" aria-hidden="true">⌘</span>
+<span class="creator-social-text"><small>PORTOFOLIO · WEBSITE</small><strong>fydzz-official.my.id</strong></span>
+<span class="creator-social-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="creator-social" href="https://wa.me/6283120264665?text=Halo%20Rafid%2C%20saya%20ingin%20memberikan%20saran%20untuk%20website%20X%20TMI%20ONE." target="_blank" rel="noopener noreferrer" aria-label="Hubungi Rafid melalui WhatsApp">
+<span class="creator-social-icon" aria-hidden="true">↗</span>
+<span class="creator-social-text"><small>WHATSAPP · CONTACT</small><strong>6283120264665</strong></span>
+<span class="creator-social-arrow" aria-hidden="true">↗</span>
+</a>
+</div>
+</div>
+<p class="creator-footnote">Dibangun untuk X TMI ONE — SMK GEMA BANGSA · 2026/2027</p>
+</div>
+</section>
+
+<div id="galleryModal" class="gallery-modal" hidden role="dialog" aria-modal="true" aria-label="Foto kelas diperbesar" onclick="closeGalleryImage(event)">
+<button class="gallery-close" type="button" aria-label="Tutup foto" onclick="closeGalleryImage()">×</button>
+<button class="gallery-nav gallery-prev" type="button" aria-label="Foto sebelumnya" onclick="changeGalleryImage(-1)">‹</button>
+<img id="galleryModalImage" src="https://files.catbox.moe/c3386y.jpg" alt="Foto kelas X TMI ONE diperbesar">
+<button class="gallery-nav gallery-next" type="button" aria-label="Foto berikutnya" onclick="changeGalleryImage(1)">›</button>
+<p>X TMI ONE — SMK GEMA BANGSA</p>
+<div id="galleryCounter" class="gallery-counter" aria-live="polite">01 / 04</div>
+</div>
+
+<footer>
+<p>© 2026 <strong>X TMI ONE</strong> — SMK GEMA BANGSA</p>
+<p>Website dibangun oleh <strong>Rafid</strong>.</p>
+</footer>
+</div>
+
+<script>
+const typingText=document.getElementById("typingText");
+const messages=[
+"Kelas X TMI ONE selalu kompak.",
+"Satu kelas, satu cerita.",
+"Belajar bersama, berkembang bersama.",
+"Membangun masa depan bersama.",
+"X TMI ONE — 2026 / 2027"
+];
+let messageIndex=0,characterIndex=0,deleting=false;
+function typeEffect(){
+ if(!typingText)return;
+ const currentMessage=messages[messageIndex];
+ if(!deleting){
+  typingText.textContent=currentMessage.substring(0,characterIndex+1);
+  characterIndex++;
+  if(characterIndex===currentMessage.length){deleting=true;setTimeout(typeEffect,1800);return}
+  setTimeout(typeEffect,70);
+ }else{
+  typingText.textContent=currentMessage.substring(0,characterIndex-1);
+  characterIndex--;
+  if(characterIndex===0){deleting=false;messageIndex=(messageIndex+1)%messages.length;setTimeout(typeEffect,350);return}
+  setTimeout(typeEffect,35);
+ }
+}
+typeEffect();
+
+const music=document.getElementById("classMusic");
+const musicButton=document.getElementById("musicButton");
+const musicStatus=document.getElementById("musicStatus");
+const musicProgress=document.getElementById("musicProgress");
+const musicCurrentTime=document.getElementById("musicCurrentTime");
+const musicDuration=document.getElementById("musicDuration");
+
+let currentView='';
+function showView(name){
+ const panels=[...document.querySelectorAll('.view-panel')];
+ const target=panels.find(panel=>panel.id==='homeView'?name==='home':panel.dataset.view===name);
+ if(!target)return;
+ const previous=panels.find(panel=>!panel.hidden);
+ if(previous&&previous!==target){
+  previous.classList.add('view-leaving');
+  window.setTimeout(()=>{previous.hidden=true;previous.classList.remove('view-leaving');target.hidden=false;target.classList.remove('view-panel');void target.offsetWidth;target.classList.add('view-panel');},150);
+ }else{panels.forEach(panel=>panel.hidden=panel!==target);}
+ currentView=name;
+ const labels={home:'Beranda',kelas:'Informasi Kelas',pengurus:'Pengurus Kelas',jadwal:'Jadwal Pelajaran',anggota:'Anggota Kelas',galeri:'Galeri Kelas',musik:'Musik',developer:'Website Administrator'};
+ document.title=(labels[name]||'X TMI ONE')+' — X TMI ONE';
+ document.querySelectorAll('.nav-links button').forEach(btn=>{
+  const active=btn.getAttribute('onclick')?.includes("'"+name+"'");
+  btn.classList.toggle('nav-active',!!active);
+  if(active)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current');
+ });
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+let introFinished=false;
+function finishVideoIntro(){
+ if(introFinished)return;
+ introFinished=true;
+ const overlay=document.getElementById('videoIntro');
+ const video=document.getElementById('introVideo');
+ // Stop video and its audio before starting the separate website soundtrack.
+ video.pause();
+ overlay.hidden=true;
+ document.getElementById('websiteApp').hidden=false;
+ showView('home');
+ music.pause();
+ try{music.currentTime=0;}catch(e){}
+ if(musicButton)musicButton.textContent='▶';
+ if(musicStatus)musicStatus.textContent='Memulai musik website…';
+ music.play().then(()=>{
+  if(musicButton)musicButton.textContent='❚❚';
+  if(musicStatus)musicStatus.textContent='Musik website sedang diputar.';
+ }).catch(()=>{
+  if(musicButton)musicButton.textContent='▶';
+  if(musicStatus)musicStatus.textContent='Autoplay diblokir browser. Tekan ▶ untuk memutar musik.';
+ });
+}
+async function enterWebsite(){
+ // Pastikan soundtrack website tidak ikut berbunyi selama video intro.
+ music.pause();
+ if(musicButton)musicButton.textContent='▶';
+ if(musicStatus)musicStatus.textContent='Musik website menunggu intro selesai.';
+ const welcome=document.getElementById('welcomeScreen');
+ const overlay=document.getElementById('videoIntro');
+ const video=document.getElementById('introVideo');
+ welcome.classList.add('leaving');
+ window.setTimeout(()=>{
+  welcome.hidden=true;
+  welcome.classList.remove('leaving');
+  overlay.hidden=false;
+  introFinished=false;
+  video.currentTime=0;
+  const playAttempt=video.play();
+  if(playAttempt&&typeof playAttempt.catch==='function'){
+   playAttempt.catch(()=>{
+    // If the remote video cannot play, let the user continue to the class site.
+    const hint=document.querySelector('.skip-intro');
+    if(hint)hint.textContent='Lanjut ke website ↗';
+   });
+  }
+ },420);
+}
+const introVideoElement=document.getElementById('introVideo');
+introVideoElement.addEventListener('ended',finishVideoIntro);
+introVideoElement.addEventListener('error',()=>{
+ const hint=document.querySelector('.skip-intro');
+ if(hint)hint.textContent='Video gagal dimuat · Lanjut ↗';
+});
+function toggleMusic(){
+ if(music.paused){
+  music.play().then(()=>{musicButton.textContent='❚❚';if(musicStatus)musicStatus.textContent='Musik sedang diputar.'})
+   .catch(()=>{if(musicStatus)musicStatus.textContent='Musik belum bisa diputar. Coba tekan play lagi atau periksa koneksi.'});
+ }else{music.pause();musicButton.textContent='▶';if(musicStatus)musicStatus.textContent='Musik dijeda.'}
+}
+function formatTime(seconds){
+ if(!Number.isFinite(seconds)||seconds<0)return '0:00';
+ const mins=Math.floor(seconds/60),secs=Math.floor(seconds%60);
+ return mins+':'+String(secs).padStart(2,'0');
+}
+music.addEventListener('loadedmetadata',()=>{
+ if(musicDuration)musicDuration.textContent=formatTime(music.duration);
+});
+music.addEventListener('timeupdate',()=>{
+ if(musicCurrentTime)musicCurrentTime.textContent=formatTime(music.currentTime);
+ if(musicProgress&&Number.isFinite(music.duration)&&music.duration>0&&!musicProgress.matches(':active')){
+  musicProgress.value=String((music.currentTime/music.duration)*100);
+ }
+});
+if(musicProgress){
+ musicProgress.addEventListener('input',()=>{
+  if(Number.isFinite(music.duration)&&music.duration>0)music.currentTime=(Number(musicProgress.value)/100)*music.duration;
+ });
+}
+music.addEventListener('play',()=>{musicButton.textContent='❚❚';if(musicStatus)musicStatus.textContent='Menyiapkan audio…'});
+music.addEventListener('playing',()=>{musicButton.textContent='❚❚';if(musicStatus)musicStatus.textContent='Audio berhasil diputar.'});
+music.addEventListener('waiting',()=>{if(musicStatus)musicStatus.textContent='Memuat audio…'});
+music.addEventListener('pause',()=>{musicButton.textContent='▶'});
+music.addEventListener('error',()=>{musicButton.textContent='▶';if(musicStatus)musicStatus.textContent='Musik online gagal dimuat. Pilih file MP3 dari HP di bawah pemutar.'});
+const musicFileInput=document.getElementById('musicFileInput');
+let localMusicUrl='';
+if(musicFileInput){musicFileInput.addEventListener('change',()=>{
+ const file=musicFileInput.files&&musicFileInput.files[0];if(!file)return;
+ if(localMusicUrl)URL.revokeObjectURL(localMusicUrl);
+ localMusicUrl=URL.createObjectURL(file);music.src=localMusicUrl;music.load();music.currentTime=0;
+ if(musicStatus)musicStatus.textContent='File '+file.name+' siap diputar.';
+ music.play().then(()=>{if(musicStatus)musicStatus.textContent='Audio lokal sedang diputar.'}).catch(()=>{if(musicStatus)musicStatus.textContent='File siap. Tekan tombol ▶ untuk memutar.'});
+});}
+
+// Live clock and greeting, based on the visitor's local device time.
+function updateLiveClock(){
+ const now=new Date();
+ const clock=document.getElementById('liveClock'),date=document.getElementById('liveDate'),greeting=document.getElementById('liveGreeting');
+ if(clock)clock.textContent=now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+ if(date)date.textContent=now.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+ if(greeting){const h=now.getHours();greeting.textContent=(h<11?'SELAMAT PAGI':h<15?'SELAMAT SIANG':h<18?'SELAMAT SORE':'SELAMAT MALAM')+', X TMI ONE';}
+}
+updateLiveClock();setInterval(updateLiveClock,1000);
+
+// Audio analyser visualizer. Falls back to a subtle idle animation when Web Audio is unavailable.
+const visualCanvas=document.getElementById('audioVisualizer');
+const visualCtx=visualCanvas?.getContext('2d');
+const musicPlayer=document.querySelector('.music-player');
+let audioContext=null, analyser=null, frequencyData=null, visualizerFrame=0, sourceConnected=false;
+function setupAudioVisualizer(){
+ // Keep the original audio element connected directly to the browser output.
+ // Web Audio routing can silence cross-origin Catbox audio when CORS headers
+ // are unavailable, so the visualizer is intentionally decorative and never
+ // intercepts or reroutes the soundtrack.
+}
+function drawAudioVisualizer(){
+ if(!visualCtx||!visualCanvas)return;
+ const w=visualCanvas.width,h=visualCanvas.height,cx=w/2,cy=h/2;
+ visualCtx.clearRect(0,0,w,h);
+ const active=!music.paused&&!music.ended;
+ const count=48;
+ for(let i=0;i<count;i++){
+  const angle=(Math.PI*2*i/count)-Math.PI/2;
+  const sample=0;
+  const idle=active?0.12+Math.abs(Math.sin(Date.now()/280+i*.48))*.22:0.035+Math.abs(Math.sin(Date.now()/950+i*.32))*.045;
+  const length=9+Math.max(sample,idle)*35;
+  const inner=active?36:40;
+  const x1=cx+Math.cos(angle)*inner,y1=cy+Math.sin(angle)*inner;
+  const x2=cx+Math.cos(angle)*(inner+length),y2=cy+Math.sin(angle)*(inner+length);
+  visualCtx.beginPath();visualCtx.moveTo(x1,y1);visualCtx.lineTo(x2,y2);
+  visualCtx.strokeStyle=`rgba(245,245,245,${active?.38+idle:.2+idle})`;
+  visualCtx.lineWidth=i%4===0?2:1.25;visualCtx.lineCap='round';visualCtx.stroke();
+ }
+ visualizerFrame=requestAnimationFrame(drawAudioVisualizer);
+}
+if(visualCanvas&&visualCtx)drawAudioVisualizer();
+music.addEventListener('playing',()=>{setupAudioVisualizer();musicPlayer?.classList.add('is-playing');});
+music.addEventListener('pause',()=>musicPlayer?.classList.remove('is-playing'));
+music.addEventListener('error',()=>musicPlayer?.classList.remove('is-playing'));
+
+// Lightweight animated particle field. It pauses when the tab is hidden and respects reduced-motion settings.
+(function initParticles(){
+ const canvas=document.getElementById('particleCanvas');if(!canvas)return;
+ const ctx=canvas.getContext('2d');if(!ctx)return;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;
+ let width=0,height=0,particles=[],raf=0;
+ function resize(){
+  const dpr=Math.min(window.devicePixelRatio||1,1.5);width=window.innerWidth;height=window.innerHeight;
+  canvas.width=Math.floor(width*dpr);canvas.height=Math.floor(height*dpr);canvas.style.width=width+'px';canvas.style.height=height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+  const amount=Math.max(20,Math.min(58,Math.floor(width*height/22000)));
+  particles=Array.from({length:amount},()=>({x:Math.random()*width,y:Math.random()*height,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.4+.4}));
+ }
+ function draw(){
+  ctx.clearRect(0,0,width,height);
+  for(let i=0;i<particles.length;i++){
+   const a=particles[i];a.x+=a.vx;a.y+=a.vy;
+   if(a.x<0||a.x>width)a.vx*=-1;if(a.y<0||a.y>height)a.vy*=-1;
+   ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,Math.PI*2);ctx.fillStyle='rgba(245,245,245,.58)';ctx.fill();
+   for(let j=i+1;j<particles.length;j++){
+    const b=particles[j],dx=a.x-b.x,dy=a.y-b.y,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<105){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(230,230,230,${(1-dist/105)*.11})`;ctx.lineWidth=.7;ctx.stroke();}
+   }
+  }
+  if(!document.hidden)raf=requestAnimationFrame(draw);
+ }
+ function start(){cancelAnimationFrame(raf);draw();}
+ resize();start();window.addEventListener('resize',()=>{resize();start();});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else start();});
+})();
+
+document.addEventListener("visibilitychange",()=>{
+ if(!document.hidden&&!music.paused&&music.readyState<2)music.play().catch(()=>{});
+});
+
+// Search filters the existing member cards; it does not change or remove the saved class data.
+const memberSearch=document.getElementById('memberSearch');
+const memberCards=[...document.querySelectorAll('#membersGrid .member-card')];
+const memberCount=document.getElementById('memberCount');
+function filterMembers(){
+ const query=(memberSearch?.value||'').trim().toLocaleLowerCase('id');
+ let shown=0;
+ memberCards.forEach(card=>{
+  const match=card.textContent.toLocaleLowerCase('id').includes(query);
+  card.hidden=!match;
+  if(match)shown++;
+ });
+ if(memberCount)memberCount.textContent=shown+' dari '+memberCards.length+' anggota';
+}
+memberSearch?.addEventListener('input',filterMembers);
+document.querySelectorAll('.member-photo').forEach(img=>{
+ img.addEventListener('error',()=>{
+  img.style.objectFit='contain';
+  img.style.padding='22px';
+  img.alt='Foto belum ditambahkan';
+  img.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><rect width="160" height="160" fill="#181818"/><circle cx="80" cy="58" r="25" fill="#333"/><path d="M30 145c4-32 24-48 50-48s46 16 50 48" fill="#333"/><text x="80" y="153" font-size="8" fill="#777" text-anchor="middle">FOTO ANGGOTA</text></svg>');
+ },{once:true});
+});
+
+const galleryModal=document.getElementById('galleryModal');
+const galleryModalImage=document.getElementById('galleryModalImage');
+const galleryCounter=document.getElementById('galleryCounter');
+const galleryImages=Array.from(document.querySelectorAll('.gallery-image-button .class-photo'));
+let activeGalleryIndex=0, galleryTouchStartX=0;
+function showGalleryImage(index){
+ if(!galleryImages.length)return;
+ activeGalleryIndex=(index+galleryImages.length)%galleryImages.length;
+ const image=galleryImages[activeGalleryIndex];
+ galleryModalImage.src=image.currentSrc||image.src;
+ galleryModalImage.alt=(image.alt||'Foto kelas X TMI ONE')+' — diperbesar';
+ galleryCounter.textContent=String(activeGalleryIndex+1).padStart(2,'0')+' / '+String(galleryImages.length).padStart(2,'0');
+}
+function openGalleryImage(image){
+ const index=galleryImages.indexOf(image);
+ showGalleryImage(index<0?0:index);
+ galleryModal.hidden=false;document.body.style.overflow='hidden';galleryModal.querySelector('.gallery-close').focus();
+}
+function changeGalleryImage(direction){showGalleryImage(activeGalleryIndex+direction)}
+function closeGalleryImage(event){
+ if(event&&event.target!==galleryModal)return;
+ galleryModal.hidden=true;document.body.style.overflow='';
+}
+galleryModal.addEventListener('touchstart',event=>{galleryTouchStartX=event.changedTouches[0].screenX},{passive:true});
+galleryModal.addEventListener('touchend',event=>{
+ if(galleryModal.hidden)return;
+ const delta=event.changedTouches[0].screenX-galleryTouchStartX;
+ if(Math.abs(delta)>55)changeGalleryImage(delta<0?1:-1);
+},{passive:true});
+document.addEventListener('keydown',event=>{
+ if(galleryModal.hidden)return;
+ if(event.key==='Escape')closeGalleryImage();
+ if(event.key==='ArrowRight')changeGalleryImage(1);
+ if(event.key==='ArrowLeft')changeGalleryImage(-1);
+});
+</script>
+</body>
+</html>
