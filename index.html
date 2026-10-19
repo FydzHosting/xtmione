@@ -329,9 +329,202 @@ body{background-color:#080808!important;background-image:linear-gradient(rgba(0,
 @media(max-width:380px){.welcome-hanger.left{left:7%}.welcome-hanger.right{right:7%}}
 @media(prefers-reduced-motion:reduce){.welcome-hanger{animation:none}}
 
+
+/* Theme picker removed; keep the original monochrome design */
+/* Wide-screen composition: use space without stretching the mobile design */
+@media(min-width:1000px){.welcome-content{width:min(82vw,1000px);padding:35px 40px}.welcome-content h1{font-size:clamp(34px,3.4vw,54px);letter-spacing:8px}.welcome-kicker{font-size:12px}.welcome-hanger.left{left:clamp(70px,14vw,220px)}.welcome-hanger.right{right:clamp(70px,14vw,220px)}.hero-content{max-width:1000px}.hero{padding-left:7vw;padding-right:7vw}}
+/* Manual layout modes: keep content fitted to the REAL viewport, including landscape phones */
+body.layout-mobile .nav-links{display:none}
+body.layout-mobile .nav-container{padding:12px 16px}
+body.layout-mobile .hero{min-height:100svh;padding:clamp(78px,12svh,110px) 16px 38px}
+body.layout-mobile .class-name{font-size:clamp(42px,10vw,76px);letter-spacing:-2px}
+body.layout-mobile section{padding:clamp(42px,7vh,70px) 16px}
+body.layout-mobile .info-grid,body.layout-mobile .structure-grid{grid-template-columns:1fr}
+body.layout-mobile .members-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.layout-mobile .developer-box{padding:20px;flex-direction:column;align-items:flex-start}
+body.layout-mobile .music-box{padding:16px}
+body.layout-mobile .welcome-content{width:min(100%,560px);max-height:calc(100svh - 24px);overflow:auto;padding:clamp(18px,4vh,34px) 16px}
+body.layout-mobile .welcome-content h1{font-size:clamp(22px,6vw,36px);letter-spacing:clamp(2px,1vw,5px)}
+body.layout-mobile .welcome-mark{font-size:clamp(70px,18vw,125px);letter-spacing:-6px}
+body.layout-mobile .welcome-hanger.left{left:9%}body.layout-mobile .welcome-hanger.right{right:9%}
+/* PC mode uses a desktop-like composition but never forces desktop-sized content on a phone */
+body.layout-desktop .nav-links{display:flex;gap:clamp(5px,1.5vw,22px)}
+body.layout-desktop .nav-container{padding:clamp(8px,1.8vh,18px) clamp(10px,2.5vw,28px)}
+body.layout-desktop .info-grid,body.layout-desktop .structure-grid{grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr))}
+body.layout-desktop .members-grid{grid-template-columns:repeat(auto-fit,minmax(min(145px,100%),1fr))}
+body.layout-desktop .developer-box{flex-direction:row;align-items:center;padding:clamp(16px,3vw,35px)}
+body.layout-desktop .music-box{padding:clamp(14px,2.5vw,25px)}
+body.layout-desktop .hero{min-height:100svh;padding:clamp(66px,10vh,100px) clamp(12px,4vw,64px) clamp(24px,5vh,55px)}
+body.layout-desktop .hero-content{max-width:1100px;margin-inline:auto}
+body.layout-desktop .welcome-content{width:min(92vw,1000px);max-height:calc(100svh - 20px);overflow:auto;padding:clamp(12px,3vh,35px) clamp(14px,4vw,40px)}
+body.layout-desktop .welcome-content h1{font-size:clamp(20px,4vw,54px);letter-spacing:clamp(1px,0.7vw,8px)}
+body.layout-desktop .welcome-mark{font-size:clamp(64px,15vw,170px);letter-spacing:clamp(-10px,-1vw,-3px)}
+body.layout-desktop .welcome-hanger.left{left:clamp(18px,12vw,220px)}body.layout-desktop .welcome-hanger.right{right:clamp(18px,12vw,220px)}
+body.layout-desktop section{padding:clamp(38px,6vh,75px) clamp(14px,3vw,36px)}
+body.layout-desktop .section-container{max-width:1200px;margin-inline:auto}
+@media(max-width:700px){body.layout-desktop .nav-links{gap:5px}body.layout-desktop .nav-links button{font-size:9px}body.layout-desktop .nav-container{padding:8px 58px 8px 10px}body.layout-desktop .logo{font-size:12px}body.layout-desktop .developer-box{gap:12px}}
+@media(max-height:500px) and (orientation:landscape){
+ .welcome-screen{overflow-y:auto}
+ .welcome-content{margin-block:8px}
+ .welcome-mark{font-size:clamp(48px,17vh,100px)}
+ body.layout-mobile .welcome-content,body.layout-desktop .welcome-content{max-height:none}
+ body.layout-mobile .hero,body.layout-desktop .hero{min-height:100svh;padding-top:60px;padding-bottom:20px}
+ body.layout-mobile section,body.layout-desktop section{padding-top:28px;padding-bottom:28px}
+}
+
+
+
+
+/* Class identity controls */
+.logo-wrap{display:flex;align-items:center;gap:10px;min-width:0}
+.class-logo-upload{width:38px;height:38px;flex:0 0 38px;border:1px solid #383838;border-radius:11px;background:#151515;color:#f5f5f5;display:grid;place-items:center;overflow:hidden;cursor:pointer}
+.class-logo-upload img{width:100%;height:100%;object-fit:cover}.class-logo-upload span{font-size:21px;font-weight:900;line-height:1}
+.class-profile-wrap{display:flex;align-items:center;flex-direction:column;margin:0 auto 20px;gap:7px}
+.class-profile-button{width:clamp(92px,20vw,132px);aspect-ratio:1;border:1px solid #444;border-radius:50%;padding:4px;background:#111;display:grid;place-items:center;overflow:hidden;cursor:pointer;box-shadow:0 8px 32px #0008}
+.class-profile-button img{width:100%;height:100%;object-fit:cover;border-radius:50%}.class-profile-button span{font-size:34px;color:#777;line-height:1}
+.class-profile-caption{font-size:9px;letter-spacing:1.4px;color:#666;text-align:center}
+/* Fix headings and content being clipped/too close to the top */
+html{scroll-padding-top:86px}section,.hero{scroll-margin-top:78px;overflow:visible}
+section{padding-top:clamp(72px,9vh,108px);padding-bottom:clamp(60px,8vh,96px)}
+.section-header{padding-top:8px;margin-bottom:34px}.section-title{line-height:1.2;overflow-wrap:anywhere;padding-block:2px}
+.section-description{line-height:1.8;overflow-wrap:anywhere}.info-card,.person-card,.member-info,.developer-box,.music-box{min-width:0;overflow-wrap:anywhere}
+.info-label,.person-role{line-height:1.5}.info-value,.person-name{line-height:1.45;overflow-wrap:anywhere}
+.view-panel:not(header){min-height:calc(100svh - 70px)}
+@media(max-width:600px){.logo-wrap{gap:7px}.class-logo-upload{width:32px;height:32px;flex-basis:32px;border-radius:9px}.logo{font-size:14px}.section-header{margin-bottom:26px}section{padding-top:68px;padding-bottom:56px}.section-title{letter-spacing:-.8px}.class-profile-wrap{margin-bottom:16px}}
+@media(max-height:500px) and (orientation:landscape){.class-profile-button{width:68px}.class-profile-wrap{margin-bottom:8px}.hero{padding-top:75px;padding-bottom:30px}}
+
+
+/* Right-side quick panel: social links, share, and live date/time */
+.nav-container{position:relative;gap:18px}
+.menu-toggle{width:42px;height:42px;flex:0 0 42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid #303030;border-radius:12px;background:#111;cursor:pointer;transition:background .2s,border-color .2s;z-index:1002}
+.menu-toggle:hover{background:#1b1b1b;border-color:#555}
+.menu-toggle span{display:block;width:18px;height:2px;border-radius:3px;background:#f3f3f3;transition:transform .22s,opacity .22s}
+.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.panel-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.62);backdrop-filter:blur(3px);z-index:1100;opacity:0;transition:opacity .25s}
+.panel-backdrop.is-visible{opacity:1}
+.quick-panel{position:fixed;z-index:1101;right:0;top:0;width:min(390px,88vw);height:100vh;height:100dvh;overflow-y:auto;padding:30px 24px 24px;background:linear-gradient(160deg,#151515,#090909 65%);border-left:1px solid #303030;box-shadow:-25px 0 80px #0009;transform:translateX(105%);visibility:hidden;transition:transform .28s ease,visibility .28s;display:flex;flex-direction:column;gap:15px}
+.quick-panel.is-open{transform:translateX(0);visibility:visible}
+.quick-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.quick-eyebrow,.panel-section-label,.panel-clock-label{font-size:10px;letter-spacing:2.2px;color:#777;font-weight:700}
+.quick-panel-head h2{font-size:27px;letter-spacing:-.8px;margin-top:3px}
+.panel-close{width:38px;height:38px;border:1px solid #303030;border-radius:50%;background:#101010;color:#eee;font-size:25px;line-height:1;cursor:pointer}
+.panel-clock{padding:20px;border:1px solid #292929;border-radius:16px;background:linear-gradient(140deg,#171717,#0c0c0c)}
+.panel-clock-time{font-size:clamp(32px,8vw,42px);font-weight:750;letter-spacing:1px;line-height:1.3;font-variant-numeric:tabular-nums;margin-top:6px}
+.panel-clock-date{color:#999;font-size:13px;margin-top:4px}
+.panel-section-label{margin:8px 0 0}
+.panel-link{display:flex;align-items:center;gap:13px;width:100%;min-height:67px;padding:12px;border:1px solid #252525;border-radius:13px;background:#101010;color:#f5f5f5;text-align:left;cursor:pointer;transition:background .2s,border-color .2s;}
+.panel-link:hover{background:#171717;border-color:#454545}
+.panel-link-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:12px;background:#172126;color:#72e6f0;font-size:22px;font-weight:700}
+.panel-link>span:nth-child(2){display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.panel-link strong{font-size:14px;font-weight:700}.panel-link small{font-size:12px;color:#888;overflow-wrap:anywhere}.panel-arrow{font-size:19px;color:#777}
+.panel-footer{margin-top:auto;padding-top:24px;color:#ddd;font-size:14px;border-top:1px solid #242424}.panel-footer span{display:block;margin-top:5px;color:#666;font-size:10px;letter-spacing:2px}
+body.menu-open{overflow:hidden}
+@media(max-width:700px){.nav-container{flex-direction:row!important;align-items:center!important;padding-right:14px!important}.nav-links{max-width:calc(100vw - 125px);overflow-x:auto;scrollbar-width:none}.nav-links::-webkit-scrollbar{display:none}.menu-toggle{width:38px;height:38px;flex-basis:38px}.quick-panel{padding:25px 18px 20px}}
+@media(min-width:701px){.nav-container{flex-direction:row!important;align-items:center!important}.menu-toggle{margin-left:auto}}
+
+
+/* Header repair: preserve the compact mobile header and keep navigation in the hamburger panel */
+@media(max-width:700px){
+  .nav-container{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding:12px 16px!important;min-height:68px}
+  .logo-wrap{display:flex!important;align-items:center!important;gap:9px!important;flex:0 0 auto!important;min-width:0;white-space:nowrap}
+  .class-logo-upload{flex:0 0 38px!important;width:38px!important;height:38px!important}
+  .logo{font-size:16px!important;line-height:1.2!important;white-space:nowrap!important}
+  .logo span{display:inline!important;white-space:nowrap!important}
+  .nav-links{display:none!important}
+  .menu-toggle{margin-left:auto!important;flex:0 0 40px!important;width:40px!important;height:40px!important}
+}
+@media(min-width:701px){
+  .nav-container{display:flex;align-items:center;gap:20px}
+  .logo-wrap{display:flex;align-items:center;gap:12px;flex:0 0 auto;white-space:nowrap}
+  .nav-links{flex:1;min-width:0;justify-content:center;gap:clamp(12px,2vw,28px)}
+  .menu-toggle{flex:0 0 42px}
+}
+
 </style>
+<style id="global-theme-expansion">
+
+/* Expanded global theme pass: apply selected accent across the whole interface */
+body[data-theme="purple"]{--theme-rgb:192,132,252;--theme-glow:rgba(192,132,252,.24)}
+body[data-theme="blue"]{--theme-rgb:96,165,250;--theme-glow:rgba(96,165,250,.24)}
+body[data-theme="cyan"]{--theme-rgb:34,211,238;--theme-glow:rgba(34,211,238,.24)}
+body[data-theme="green"]{--theme-rgb:74,222,128;--theme-glow:rgba(74,222,128,.22)}
+body[data-theme="pink"]{--theme-rgb:244,114,182;--theme-glow:rgba(244,114,182,.24)}
+body[data-theme="red"]{--theme-rgb:248,113,113;--theme-glow:rgba(248,113,113,.24)}
+body[data-theme="orange"]{--theme-rgb:251,146,60;--theme-glow:rgba(251,146,60,.24)}
+body[data-theme="gold"]{--theme-rgb:250,204,21;--theme-glow:rgba(250,204,21,.22)}
+body[data-theme]:not([data-theme="mono"]) .section-title,
+body[data-theme]:not([data-theme="mono"]) .class-label,
+body[data-theme]:not([data-theme="mono"]) .hero-kicker,
+body[data-theme]:not([data-theme="mono"]) .welcome-kicker,
+body[data-theme]:not([data-theme="mono"]) .info-card h3,
+body[data-theme]:not([data-theme="mono"]) .member-name,
+body[data-theme]:not([data-theme="mono"]) .person-name,
+body[data-theme]:not([data-theme="mono"]) .music-title,
+body[data-theme]:not([data-theme="mono"]) .creator-name,
+body[data-theme]:not([data-theme="mono"]) .schedule-title,
+body[data-theme]:not([data-theme="mono"]) .gallery-counter{color:var(--theme-accent)!important}
+body[data-theme]:not([data-theme="mono"]) .info-card,
+body[data-theme]:not([data-theme="mono"]) .member-card,
+body[data-theme]:not([data-theme="mono"]) .person-card,
+body[data-theme]:not([data-theme="mono"]) .creator-card,
+body[data-theme]:not([data-theme="mono"]) .developer-box,
+body[data-theme]:not([data-theme="mono"]) .music-box,
+body[data-theme]:not([data-theme="mono"]) .music-player,
+body[data-theme]:not([data-theme="mono"]) .class-intro-card,
+body[data-theme]:not([data-theme="mono"]) .schedule-subject,
+body[data-theme]:not([data-theme="mono"]) .schedule-break,
+body[data-theme]:not([data-theme="mono"]) .gallery-modal,
+body[data-theme]:not([data-theme="mono"]) .search-wrap,
+body[data-theme]:not([data-theme="mono"]) .stat-box,
+body[data-theme]:not([data-theme="mono"]) .summary-stat{border-color:rgba(var(--theme-rgb),.4)!important;box-shadow:0 0 0 1px rgba(var(--theme-rgb),.035)}
+body[data-theme]:not([data-theme="mono"]) .info-card:hover,
+body[data-theme]:not([data-theme="mono"]) .member-card:hover,
+body[data-theme]:not([data-theme="mono"]) .person-card:hover,
+body[data-theme]:not([data-theme="mono"]) .creator-card:hover,
+body[data-theme]:not([data-theme="mono"]) .schedule-subject:hover{box-shadow:0 8px 28px var(--theme-glow)!important;border-color:var(--theme-accent)!important}
+body[data-theme]:not([data-theme="mono"]) .btn-primary,
+body[data-theme]:not([data-theme="mono"]) .music-button,
+body[data-theme]:not([data-theme="mono"]) .theme-reset,
+body[data-theme]:not([data-theme="mono"]) .gallery-nav:hover,
+body[data-theme]:not([data-theme="mono"]) .gallery-close:hover{background:var(--theme-accent)!important;border-color:var(--theme-accent)!important;color:#080808!important}
+body[data-theme]:not([data-theme="mono"]) .music-progress-row input,
+body[data-theme]:not([data-theme="mono"]) input[type="range"]{accent-color:var(--theme-accent)!important}
+body[data-theme]:not([data-theme="mono"]) .navbar{border-bottom-color:rgba(var(--theme-rgb),.4)!important}
+body[data-theme]:not([data-theme="mono"]) .view-menu-trigger{border-color:rgba(var(--theme-rgb),.6)!important;color:var(--theme-accent)!important}
+body[data-theme]:not([data-theme="mono"]) .view-settings-panel,
+body[data-theme]:not([data-theme="mono"]) .device-settings-panel{border-color:rgba(var(--theme-rgb),.5)!important}
+body[data-theme]:not([data-theme="mono"]) a:focus-visible,
+body[data-theme]:not([data-theme="mono"]) button:focus-visible{outline-color:var(--theme-accent)!important}
+body[data-theme]:not([data-theme="mono"]) .hero:before{background:radial-gradient(circle,rgba(var(--theme-rgb),.2),rgba(var(--theme-rgb),.04) 40%,transparent 70%)}
+
+</style>
+
+<style id="mobile-header-overflow-fix">
+/* Keep the mobile header inside the viewport without changing the page sections. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:700px){
+  nav{width:100%;max-width:100%;}
+  .nav-container{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:10px 14px 8px!important;display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:8px 10px!important;overflow:visible!important;}
+  .logo-wrap{order:1!important;flex:1 1 auto!important;min-width:0!important;white-space:nowrap!important;}
+  .logo{min-width:0!important;white-space:nowrap!important;font-size:clamp(14px,4vw,18px)!important;line-height:1.2!important;}
+  .menu-toggle{order:2!important;position:relative!important;right:auto!important;top:auto!important;margin:0!important;flex:0 0 42px!important;width:42px!important;height:42px!important;z-index:1002!important;}
+  .nav-links{order:3!important;display:flex!important;flex:0 0 100%!important;width:100%!important;max-width:100%!important;min-width:0!important;gap:18px!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;padding:5px 0 9px!important;scrollbar-width:none!important;}
+  .nav-links::-webkit-scrollbar{display:none!important;}
+  .nav-links li{flex:0 0 auto!important;}
+  .nav-links button{font-size:12px!important;white-space:nowrap!important;}
+  .quick-panel{width:min(360px,88vw)!important;max-width:100vw!important;}
+  .hero{max-width:100%;}
+}
+@media(min-width:701px){.nav-container{width:100%;box-sizing:border-box}.menu-toggle{flex:0 0 42px}}
+</style>
+
 </head>
 <body>
+
+
 <div id="welcomeScreen" class="welcome-screen cinematic-intro">
   <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
   <div class="welcome-hangers" aria-hidden="true">
@@ -359,9 +552,10 @@ body{background-color:#080808!important;background-image:linear-gradient(rgba(0,
   </video>
 </div>
 <div id="websiteApp" class="website-app" hidden>
+<input id="classLogoInput" type="file" accept="image/*" hidden>
 <nav class="navbar">
 <div class="nav-container">
-<div class="logo">X TMI ONE <span>/ 2026</span></div>
+<div class="logo-wrap"><button class="class-logo-upload" id="classLogoButton" type="button" aria-label="Ganti logo kelas"><img id="classLogoImage" alt="Logo kelas" hidden><span id="classLogoFallback">X</span></button><div class="logo">X TMI ONE <span>/ 2026</span></div></div>
 <ul class="nav-links">
 <li><button onclick="showView('home')">Beranda</button></li>
 <li><button onclick="showView('kelas')">Informasi</button></li>
@@ -372,19 +566,27 @@ body{background-color:#080808!important;background-image:linear-gradient(rgba(0,
 <li><button onclick="showView('musik')">Musik</button></li>
 <li><button onclick="showView('developer')">Pembuat Web</button></li>
 </ul>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="quickPanel"><span></span><span></span><span></span></button>
 </div>
 </nav>
+<div class="panel-backdrop" id="panelBackdrop" hidden></div>
+<aside class="quick-panel" id="quickPanel" aria-label="Menu kelas" aria-hidden="true">
+  <div class="quick-panel-head"><div><span class="quick-eyebrow">X TMI ONE · 2026</span><h2>Menu Kelas</h2></div><button class="panel-close" id="panelClose" type="button" aria-label="Tutup menu">×</button></div>
+  <div class="panel-clock"><div class="panel-clock-label">WAKTU SEKARANG</div><div class="panel-clock-time" id="panelClock">--:--:--</div><div class="panel-clock-date" id="panelDate">Memuat tanggal...</div></div>
+  <div class="panel-section-label">MEDIA SOSIAL</div>
+  <a class="panel-link" href="https://www.tiktok.com/@10tmikamboja?_r=1&_t=ZS-9Ad0i4fL9y0" target="_blank" rel="noopener noreferrer"><span class="panel-link-icon">♪</span><span><strong>TikTok Kelas</strong><small>@10tmikamboja</small></span><span class="panel-arrow">↗</span></a>
+  <a class="panel-link" href="https://www.instagram.com/x.tmione__?vrfl=MXNjang5ZXBqbmoxbg==" target="_blank" rel="noopener noreferrer"><span class="panel-link-icon">◎</span><span><strong>Instagram Kelas</strong><small>@x.tmione__</small></span><span class="panel-arrow">↗</span></a>
+  <button class="panel-link panel-action" id="shareWebsite" type="button"><span class="panel-link-icon">↗</span><span><strong>Bagikan Website</strong><small>Kirim link X TMI ONE</small></span><span class="panel-arrow">›</span></button>
+  <div class="panel-footer">Satu kelas, satu cerita.<span>SMK GEMA BANGSA</span></div>
+</aside>
 
 <header class="hero view-panel" id="homeView">
 <div class="hero-content">
 <div class="school-name">SMK GEMA BANGSA</div>
+<div class="class-profile-wrap"><div class="class-profile-button" aria-label="Foto profil kelas"><img id="classProfileImage" src="https://files.catbox.moe/ajt6l9.jpg" alt="Foto profil kelas X TMI ONE" loading="eager"><span id="classProfileFallback" hidden>＋</span></div><div class="class-profile-caption">FOTO PROFIL KELAS · X TMI ONE</div></div>
 <div class="class-label">Kelas</div>
 <h1 class="class-name">X TMI ONE</h1>
 <div class="typing-container"><span class="typing-text" id="typingText"></span></div>
-<div class="tmi-socials" aria-label="Media sosial kelas">
-  <a class="tmi-social-card" href="https://www.tiktok.com/@10tmikamboja?_r=1&_t=ZS-9Ad0i4fL9y0" target="_blank" rel="noopener noreferrer"><span class="tmi-social-icon" aria-hidden="true">♪</span><span><strong>TikTok Kelas</strong><small>@10tmikamboja</small></span></a>
-  <a class="tmi-social-card" href="https://www.instagram.com/x.tmione__?vrfl=MXNjang5ZXBqbmoxbg==" target="_blank" rel="noopener noreferrer"><span class="tmi-social-icon" aria-hidden="true">◎</span><span><strong>Instagram Kelas</strong><small>@x.tmione__</small></span></a>
-</div>
 <div class="home-summary">
 <div class="live-greeting"><span class="live-dot"></span><div><p id="liveGreeting">SELAMAT DATANG, X TMI ONE</p><strong id="liveClock">00:00:00</strong><small id="liveDate">Memuat tanggal...</small></div></div>
 <p class="summary-label">PENJELASAN KELAS</p>
@@ -975,6 +1177,46 @@ document.addEventListener('keydown',event=>{
  if(event.key==='ArrowRight')changeGalleryImage(1);
  if(event.key==='ArrowLeft')changeGalleryImage(-1);
 });
+
+
+
+// Class logo image can be customized locally; class profile photo is fixed for all visitors.
+(()=>{
+ const setup=(buttonId,inputId,imageId,fallbackId,storageKey)=>{
+  const button=document.getElementById(buttonId),input=document.getElementById(inputId),img=document.getElementById(imageId),fallback=document.getElementById(fallbackId);
+  if(!button||!input||!img||!fallback)return;
+  const show=src=>{img.src=src;img.hidden=false;fallback.hidden=true};
+  try{const saved=localStorage.getItem(storageKey);if(saved)show(saved)}catch(e){}
+  button.addEventListener('click',()=>input.click());
+  input.addEventListener('change',()=>{const file=input.files&&input.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Pilih file gambar ya.');return;}if(file.size>4*1024*1024){alert('Ukuran gambar maksimal 4 MB.');input.value='';return;}const reader=new FileReader();reader.onload=()=>{const src=reader.result;show(src);try{localStorage.setItem(storageKey,src)}catch(e){alert('Gambar tampil, tetapi penyimpanan browser penuh. Coba gambar yang lebih kecil.')}};reader.readAsDataURL(file);});
+ };
+ setup('classLogoButton','classLogoInput','classLogoImage','classLogoFallback','xtmione-class-logo');
+})();
+
+
+// Hamburger panel controls and live local clock/date.
+(()=>{
+ const toggle=document.getElementById('menuToggle'),panel=document.getElementById('quickPanel'),backdrop=document.getElementById('panelBackdrop'),close=document.getElementById('panelClose');
+ if(!toggle||!panel||!backdrop||!close)return;
+ const setOpen=open=>{
+  panel.classList.toggle('is-open',open);backdrop.hidden=!open;requestAnimationFrame(()=>backdrop.classList.toggle('is-visible',open));
+  toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Tutup menu':'Buka menu');panel.setAttribute('aria-hidden',String(!open));document.body.classList.toggle('menu-open',open);
+  if(open)close.focus();else toggle.focus();
+ };
+ toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
+ close.addEventListener('click',()=>setOpen(false));backdrop.addEventListener('click',()=>setOpen(false));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true')setOpen(false)});
+ panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+ const clock=document.getElementById('panelClock'),date=document.getElementById('panelDate');
+ const update=()=>{const now=new Date();if(clock)clock.textContent=new Intl.DateTimeFormat('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(now);if(date)date.textContent=new Intl.DateTimeFormat('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(now)};
+ update();setInterval(update,1000);
+ const share=document.getElementById('shareWebsite');
+ share?.addEventListener('click',async()=>{
+  const payload={title:'X TMI ONE — SMK GEMA BANGSA',text:'Website kelas X TMI ONE · Satu kelas, satu cerita.',url:location.href};
+  try{if(navigator.share){await navigator.share(payload)}else if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(location.href);share.querySelector('strong').textContent='Link tersalin!';setTimeout(()=>{const t=share.querySelector('strong');if(t)t.textContent='Bagikan Website'},1800)}else{window.prompt('Salin link website ini:',location.href)}}catch(e){if(e?.name!=='AbortError')window.prompt('Salin link website ini:',location.href)}
+ });
+})();
+
 </script>
 </body>
 </html>
